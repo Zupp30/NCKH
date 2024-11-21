@@ -21,18 +21,31 @@ class TEST(Ui_Form):
         msg.setText("Chương trình được xây dựng bởi nhóm NCKH thầy Chiến - KMA")
         msg.setWindowTitle("About")
         msg.setStandardButtons(QMessageBox.Ok)
+        msg.exec_()
 
-        #---------------------
-        # NewButtonHandle goes here
-        #---------------------
+        self.NewButton.clicked.connect(self.NewButtonHandle)
 
-        #---------------------
-        # GoButtonHandle goes here
-        #---------------------
-        
-        #---------------------
-        # PreviousButtonHandle goes here
-        #---------------------
+    #---------------------
+    # NewButtonHandle goes here
+    #---------------------
+    def NewButtonHandle(self):
+        try:
+            self.path, _ = QFileDialog.getOpenFileName(None, "Open File", "", "*.txt")
+            text_file = open(self.path, 'r')
+            self.Output.setText(text_file.read())
+            text_file.close()
+        except:
+            pass
+
+    #---------------------
+    # GoButtonHandle goes here
+    #---------------------
+
+    #---------------------
+    # PreviousButtonHandle goes here
+    #---------------------
+
+
 if __name__ == "__main__":
     import sys
     app = QApplication(sys.argv)

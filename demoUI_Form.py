@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
-        Form.resize(675, 299)
+        Form.resize(675, 129)
         self.formLayout = QtWidgets.QFormLayout(Form)
         self.formLayout.setObjectName("formLayout")
         self.NewButton = QtWidgets.QPushButton(Form)
@@ -35,9 +35,9 @@ class Ui_Form(object):
         self.PreviousObject = QtWidgets.QLabel(Form)
         self.PreviousObject.setObjectName("PreviousObject")
         self.formLayout.setWidget(2, QtWidgets.QFormLayout.FieldRole, self.PreviousObject)
-        self.listWidget = QtWidgets.QListWidget(Form)
-        self.listWidget.setObjectName("listWidget")
-        self.formLayout.setWidget(4, QtWidgets.QFormLayout.SpanningRole, self.listWidget)
+        self.Output = QtWidgets.QTextBrowser(Form)
+        self.Output.setObjectName("Output")
+        self.formLayout.setWidget(3, QtWidgets.QFormLayout.SpanningRole, self.Output)
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
@@ -53,13 +53,3 @@ class Ui_Form(object):
         self.GoObject.setText(_translate("Form", "Go File"))
         self.PreviousButton.setText(_translate("Form", "Previous"))
         self.PreviousObject.setText(_translate("Form", "Previous File"))
-
-
-# if __name__ == "__main__":
-#     import sys
-#     app = QtWidgets.QApplication(sys.argv)
-#     Form = QtWidgets.QWidget()
-#     ui = Ui_Form()
-#     ui.setupUi(Form)
-#     Form.show()
-#     sys.exit(app.exec_())
